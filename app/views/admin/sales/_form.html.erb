@@ -1,0 +1,56 @@
+<%= form_with(model: admin_sale) do |form| %>
+  <% if admin_sale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_sale.errors.count, "error") %> prohibited this admin_sale from being saved:</h2>
+
+      <ul>
+        <% admin_sale.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :saleCode %>
+      <%= form.text_field :saleCode, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :customer_id %>
+      
+      <%= form.collection_select :customer_id, @admin_customer,:id ,:customerName, { include_blank: 'Select Customer' }, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :product_id %>
+      <%= form.collection_select :product_id, @admin_product,:id ,:productName, { include_blank: 'Select Product' }, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :amount %>
+      <%= form.text_field :amount, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="mt10 col-sm-3">
+    <div class="form-group">
+      <%= form.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back', admin_sales_path, class: 'btn btn-danger' %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <% if notice %>
+      <%= render 'layouts/alerts' %>
+    <% end %>
+    <% if admin_signed_in? %>
+      <% url_specific_path = request.fullpath %>
+      <%if url_specific_path =~ /admin/ %>
+        <%= render "layouts/header" %>
+      <% end %>
+    <% end %>
+    
+    <%= yield %>
+
+    <% if admin_signed_in? %>
+      <%if url_specific_path =~ /admin/ %>
+        <%= render "layouts/footer" %>
+      <% end %>
+    <% end %>
+  </body>
+</html>

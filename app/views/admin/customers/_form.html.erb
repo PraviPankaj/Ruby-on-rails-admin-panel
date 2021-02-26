@@ -1,0 +1,41 @@
+<%= form_with(model: admin_customer) do |form| %>
+  <% if admin_customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_customer.errors.count, "error") %> prohibited this admin_customer from being saved:</h2>
+
+      <ul>
+        <% admin_customer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :customerCode %>
+      <%= form.text_field :customerCode, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :customerName %>
+      <%= form.text_field :customerName, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :customerPhone %>
+      <%= form.text_field :customerPhone, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="mt10 col-sm-3">
+    <div class="form-group">
+      <%= form.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back', admin_customers_path, class: 'btn btn-danger' %>
+    </div>
+  </div>
+<% end %>

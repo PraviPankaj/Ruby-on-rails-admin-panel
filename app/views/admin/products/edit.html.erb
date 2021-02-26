@@ -1,0 +1,25 @@
+<div class="pageheader">
+     <h2> Edit Product</h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", admin_dashboard_index_path %></li>
+          <li><%= link_to "Product", admin_products_path %></li>
+          <li class="active">Edit Product</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+  	<div class="panel panel-default">
+    	<div class="panel-body">
+      
+      		<div class="row">
+        		<div class="col-md-12">
+
+					<%= render 'form', admin_product: @admin_product %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

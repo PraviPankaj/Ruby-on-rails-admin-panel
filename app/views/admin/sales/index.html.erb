@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+<div class="pageheader">
+     <h2> Sales</h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", admin_dashboard_index_path %></li>
+          <li class="active">Sales</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3 mb10">
+          
+          <%= link_to "Add Sale", new_admin_sale_path, class:"btn btn-success"%>
+          
+        </div>
+      
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="searchTable" >
+              <thead>
+                <tr>
+                  <th>Salecode</th>
+                  <th>Customer</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                  <th colspan="3">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @admin_sales.each do |admin_sale| %>
+                  <tr>
+                    <td><%= admin_sale.saleCode %></td>
+                    <td><%= admin_sale.customer.customerName %></td>
+                    <td><%= admin_sale.product.productName %></td>
+                    <td><%= admin_sale.quantity %></td>
+                    <td><%= admin_sale.amount %></td>
+                    <td><%= link_to 'Show', admin_sale, class: 'btn btn-success' %></td>
+                    <td><%= link_to 'Edit', edit_admin_sale_path(admin_sale), class: 'btn btn-warning' %></td>
+                    <td><%= link_to 'Destroy', admin_sale, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+

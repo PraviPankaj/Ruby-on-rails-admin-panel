@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<div class="pageheader">
+     <h2> Edit Sale</h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", admin_dashboard_index_path %></li>
+          <li><%= link_to "Sale", admin_sales_path %></li>
+          <li class="active">Edit Sale</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+      <div class="panel-body">
+      
+          <div class="row">
+            <div class="col-md-12">
+              <p>
+                <strong>Salecode:</strong>
+                <%= @admin_sale.saleCode %>
+              </p>
+
+              <p>
+                <strong>Customer:</strong>
+                <%= @admin_sale.customer.customerName %>
+              </p>
+
+              <p>
+                <strong>Product:</strong>
+                <%= @admin_sale.product.productName %>
+              </p>
+
+              <p>
+                <strong>Quantity:</strong>
+                <%= @admin_sale.quantity %>
+              </p>
+
+              <p>
+                <strong>Amount:</strong>
+                <%= @admin_sale.amount %>
+              </p>
+              <%= link_to 'Edit', edit_admin_sale_path(@admin_sale), class: 'btn btn-primary' %> 
+              <%= link_to 'Back', admin_sales_path, class: 'btn btn-danger' %>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+

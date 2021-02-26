@@ -1,0 +1,41 @@
+<%= form_with(model: admin_product) do |form| %>
+  <% if admin_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_product.errors.count, "error") %> prohibited this admin_product from being saved:</h2>
+
+      <ul>
+        <% admin_product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :productCode %>
+      <%= form.text_field :productCode, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :productName %>
+      <%= form.text_field :productName, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= form.label :productCost %>
+      <%= form.text_field :productCost, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="mt10 col-sm-3">
+    <div class="form-group">
+      <%= form.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back', admin_products_path, class: 'btn btn-danger' %>
+    </div>
+  </div>
+<% end %>
